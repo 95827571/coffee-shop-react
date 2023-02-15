@@ -1,0 +1,47 @@
+#coffee-shop {
+    width: 100vw;
+    display: flex;
+    flex-wrap: row;
+}
+
+#img-wrapper {
+    width: 50%;
+}
+
+#item-list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.item-holder {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.item-desc {
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10%;
+}
+
+.item-desc > p {
+    text-align: left;
+}
+
+.item-buttons {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10%;
+}
+
+.item-buttons > p {
+    width: 20px;
+    text-align: center;
+    cursor: pointer;
+}
