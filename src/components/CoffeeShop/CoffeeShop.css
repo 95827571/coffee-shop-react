@@ -1,11 +1,22 @@
 #coffee-shop {
     width: 100vw;
     display: flex;
-    flex-wrap: row;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
 }
 
 #img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
+}
+
+#img-wrapper > img {
+    height: 400px;
+    width: 600px;
 }
 
 #item-list {
@@ -17,19 +28,24 @@
 .item-holder {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 60%;
+    margin-top: 0.6vh;
 }
 
 .item-desc {
     width: 30%;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10%;
+    background-color: #aeaeae;
 }
 
 .item-desc > p {
-    text-align: left;
+    width: 100%;
+    text-align: center;
+    color: #e1e1e1
 }
 
 .item-buttons {
@@ -38,10 +54,36 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10%;
+    margin-left: 2vw;
 }
 
-.item-buttons > p {
-    width: 20px;
+.item-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
     text-align: center;
     cursor: pointer;
+    background-color: #a2a2a2;
+    height: 100%;
+}
+
+.item-btn > p {
+    width: 100%;
+    text-align: center;
+    color: #e1e1e1
+}
+
+.item-quantity {
+    display: flex;
+    width: 100px;
+    background-color: #a2a2a2;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-quantity > p {
+    width: 100%;
+    text-align: center;
+    color: #e1e1e1
 }

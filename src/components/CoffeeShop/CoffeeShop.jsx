@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import "./CoffeeShop.css"
 
 const createItem = (item, itemQuanities, setQuantity) => {
-    //  onClick={() => {const newData = itemQuanities; newData[item.id] = newData[item.id]++; clickHandle(newData)}}
 
     const updateItem = (value) => {
         const amount = itemQuanities[item.id] + value;
+        if((itemQuanities[item.id] + amount) <= 0) return;
         setQuantity({ ...itemQuanities, [item.id]: amount})
         console.log(`${item.id}`)
     }
@@ -17,9 +17,9 @@ const createItem = (item, itemQuanities, setQuantity) => {
             <p>£{item.price.toFixed(2)}</p>
         </div>
         <div className="item-buttons">
-            <p onClick={() => {updateItem(1)}}>+</p>
-            <p onClick={() => {updateItem(-1)}}>-</p>
-            <p>{itemQuanities[item.id]}</p>
+            <div className="item-btn" onClick={() => {updateItem(1)}}><p>+</p></div>
+            <div className="item-btn" onClick={() => {updateItem(-1)}}><p>-</p></div>
+            <div className="item-quantity"><p>{itemQuanities[item.id]}</p></div>
         </div>
     </div>;
 };
@@ -47,13 +47,11 @@ export default function CoffeeShop({ items }) {
     
     useEffect(() => {
         let _totalPrice = 0
-        for (const quantity in itemQuantity) {
-            const item = items.find(item => item.id == quantity)
-            _totalPrice += item.price * itemQuantity[quantity]
+        for (const id in itemQuantity) {
+            const item = items.find(item => item.id == id)
+            _totalPrice += item.price * itemQuantity[id]
         }
         setTotalPrice(_totalPrice);
-    
-        console.log(totalPrice);
     }, [itemQuantity])
     
     items.forEach(item => {
@@ -62,15 +60,17 @@ export default function CoffeeShop({ items }) {
     
     
     return (
-        <div id="coffee-shop">
-            <div id="img-wrapper">
-                <img src="" />
+        <div>
+            <div id="coffee-shop">
+                <div id="img-wrapper">
+                    <img src="./images/menu.png" />
 
+                </div>
+                <div id="item-list">
+                    {itemsToDisplay}
+                </div>
             </div>
-            <div id="item-list">
-                {itemsToDisplay}
-            </div>
-            <div>{totalPrice.toFixed(2)}</div>
+            <div>£{totalPrice.toFixed(2)}</div>
         </div>
     );
 
