@@ -22,6 +22,8 @@
 #item-list {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 50%;
 }
 
@@ -86,4 +88,39 @@
     width: 100%;
     text-align: center;
     color: #e1e1e1
+}
+
+#bottom-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+}
+
+#receipt-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 5vh;
+    width: fit-content;
+}
+
+.receipt-item-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10%;
+}
+
+.receipt-item-wrapper > p {
+    text-align: left;
+}
+.fixed-rcpt {
+    width: 120px;
+}
+
+#receipt-total-price {
+    width: calc(100% - 45px);
+    text-align: right;
 }
