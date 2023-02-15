@@ -124,3 +124,12 @@
     width: calc(100% - 45px);
     text-align: right;
 }
+
+.text-btn {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.text-btn:hover {
+    color: red;
+}
