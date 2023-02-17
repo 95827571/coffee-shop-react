@@ -1,5 +1,3 @@
-import React from "react";
-
 // updates the original quantities list with the new item amount
 const updateItem = (itemObject, itemQuantities, setFunc, value) => {
     const amount = itemQuantities[itemObject.id] + value;

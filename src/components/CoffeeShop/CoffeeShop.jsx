@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./CoffeeShop.css"
 import ItemButton from "./Items/ItemButton";
 import ReceiptItem from "./Items/ReceiptItem";
@@ -28,11 +28,11 @@ export default function CoffeeShop({ items }) {
         let newArr = []
         let index = 0;
         for (const id in itemQuantity) {
-            index++;
             const item = items.find(item => item.id == id)
             _totalPrice += item.price * itemQuantity[id]
-
+            
             if(itemQuantity[id] > 0) {
+                index++;
                 newArr.push(<ReceiptItem key={index} itemObject={item} quantity={itemQuantity[id]} price={item.price} itemQuantities={itemQuantity} setFunc={clickHandle}/>);
             }
             setReceiptItems(newArr)

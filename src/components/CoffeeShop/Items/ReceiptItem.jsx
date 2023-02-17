@@ -1,5 +1,3 @@
-import React from "react";
-
 // read the function name
 const removeItem = (itemObject, itemQuantities, setFunc) => {
     setFunc({ ...itemQuantities, [itemObject.id]: 0 });
