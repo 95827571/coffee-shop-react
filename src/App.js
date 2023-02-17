@@ -37,6 +37,21 @@ function App() {
                     id: 6,
                     price: 3.90,
                 },
+                {
+                    name: "Coffee 1",
+                    id: 7,
+                    price: 4.20,
+                },
+                {
+                    name: "Coffee 2",
+                    id: 8,
+                    price: 4.20,
+                },
+                {
+                    name: "Coffee 3",
+                    id: 9,
+                    price: 4.20,
+                },
                 ]
             } />
 
