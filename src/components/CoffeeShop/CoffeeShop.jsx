@@ -4,7 +4,6 @@ import ItemButton from "./Items/ItemButton";
 import ReceiptItem from "./Items/ReceiptItem";
 
 export default function CoffeeShop({ items }) {
-    const itemsToDisplay = [];
     const [receiptItems, setReceiptItems] = useState([]);
     const [itemQuantity, setItemQuantity] = useState({});
     const [totalPrice, setTotalPrice] = useState(0);
@@ -27,12 +26,14 @@ export default function CoffeeShop({ items }) {
     useEffect(() => {
         let _totalPrice = 0
         let newArr = []
+        let index = 0;
         for (const id in itemQuantity) {
+            index++;
             const item = items.find(item => item.id == id)
             _totalPrice += item.price * itemQuantity[id]
 
             if(itemQuantity[id] > 0) {
-                newArr.push(<ReceiptItem itemObject={item} quantity={itemQuantity[id]} price={item.price} itemQuantities={itemQuantity} setFunc={clickHandle}/>);
+                newArr.push(<ReceiptItem key={index} itemObject={item} quantity={itemQuantity[id]} price={item.price} itemQuantities={itemQuantity} setFunc={clickHandle}/>);
             }
             setReceiptItems(newArr)
         }
@@ -40,8 +41,8 @@ export default function CoffeeShop({ items }) {
     }, [itemQuantity])
     
     // Creates each button :D
-    items.forEach(item => {
-        itemsToDisplay.push((<ItemButton itemObject={item} itemQuantities={itemQuantity} setFunc={clickHandle}/>));
+    const itemsToDisplay = items.map((item, index) => {
+        return <ItemButton key={index} itemObject={item} itemQuantities={itemQuantity} setFunc={clickHandle}/>;
     });
     
     return (
